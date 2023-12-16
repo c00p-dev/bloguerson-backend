@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+  api:
+    build: .
+    image: $DOCKER_IMAGE
+    env_file:
+      - .env
+    logging:
+      driver: json-files
+      options:
+        max-size: 10m
+    ports:
+      - $PORT:$PORT
+    restart: always
